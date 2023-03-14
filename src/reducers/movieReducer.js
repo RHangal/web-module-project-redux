@@ -13,6 +13,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 movies: state.movies.filter(item=>(action.payload !== item.id))
             }
+        case ADD_MOVIE:
+            return {
+                ...state,
+                movies: movies.concat({...action.payload, id: Date.now()})
+            }
         default:
             return state;
     }
